@@ -3,14 +3,15 @@ digraph s {
     rankdir=BT;
     
     edge[arrowhead=empty]
-    node[shape="record"];
-
-    node_houseBlend[label="{<d0>HouseBlend|description\l|getDescription()\lcost()\l}"];
-    node_darkRoast[label="{<d0>nDarkRoast|description\l|getDescription()\lcost()\l}"];
-    node_decaf[label="{<d0>Decaf|description\l|getDescription()\lcost()\l}"];
-    node_espresso[label="{<d0>Espresso|description\l|getDescription()\lcost()\l}"];
-
+    node[shape="record",fontname="Consolas,Monaca"];
     node_beverage[label="{Beverage|description\l|getDescription()\lcost()\l}"];
+    
+
+    node_houseBlend[label="{<d0>HouseBlend|cost()\l}"];
+    node_darkRoast[label="{<d0>nDarkRoast|cost()\l}"];
+    node_decaf[label="{<d0>Decaf|cost()\l}"];
+    node_espresso[label="{<d0>Espresso|cost()\l}"];
+
     
     node_houseBlend  -> node_beverage
     node_darkRoast  ->  node_beverage  
