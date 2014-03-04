@@ -1,0 +1,43 @@
+digraph s {
+    splines=line;
+    node[shape="record"]
+    node_c1[label="client"];
+    node_s1[label="server\nchild"];
+    node_c1->node_s1[label="connection", style="dashed",dir="both", constraint="false"];
+
+    node_lis[label="listening\nserver"];
+
+    node_c2[label="client"];
+    node_s2[label="server\nchild"];
+    node_c2->node_s2[label="connection", style="dashed",dir="both", constraint="false"];
+
+
+    node_lis->node_s1[constraint="false"];
+    node_lis->node_s2[constraint="false"];
+
+
+    node_t1[label="TCP"];
+    node_ts1[label="",style="invis"];
+
+    node_tc[label="TCP"];
+    node_t2[label="TCP"];
+    node_ts2[label="", style="invis"];
+
+
+
+    node_c1->node_t1[dir="none"];
+    node_c2->node_t2[dir="none"];
+    node_lis->node_tc[dir="none"];
+    node_s1->node_ts1[style="invis"];
+    node_s2->node_ts2[style="invis"];
+
+    node_t1->node_ts1->node_tc[constraint="false",style="invis"];
+    node_t2->node_ts2->node_tc[constraint="false",style="invis"];
+
+    node_t1->node_tc[constraint="false"];
+    node_t2->node_tc[constraint="false"];
+
+
+    node_s1->node_tc[dir="back", label="receive buffer 1", fontcolor="OrangeRed"];
+    node_s2->node_tc[dir="back", label="receive buffer 2", fontcolor="OrangeRed"];
+    }

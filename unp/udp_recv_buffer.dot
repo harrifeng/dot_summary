@@ -1,0 +1,20 @@
+digraph s {
+    node[shape="record"]
+    node_c1[label="client"];
+    node_u1[label="UDP"];
+    node_c1->node_u1[dir="none"];
+
+    node_server[label="server"];
+    node_udp[label="UDP"];
+    node_server ->node_udp[dir="none", label="receive buffer(only 1)"];
+
+    node_c2[label="client"];
+    node_u2[label="UDP"];
+    node_c2->node_u2[dir="none"];
+
+    node_c1->node_server->node_c2[constraint="false", style="invis"];
+
+    node_u1->node_udp[label="datagram", constraint="false"]
+    node_u2->node_udp[label="datagram", constraint="false"]
+
+    }
