@@ -1,0 +1,9 @@
+digraph s {
+    edge[arrowtail="odiamond"]
+    node[shape="record", fontname="Consolas,Monaco"];
+    
+    node_pond[label="Pond"];
+    node_duck[label="Duck"];
+    
+    node_pond->node_duck[label="   ",constraint=false,dir=back ];
+    }

@@ -1,0 +1,4 @@
+digraph s {
+    node[shape="record"];
+    node_light[label="{Light|on()\loff()\lbrighten()\ldim()\l}"];
+    }
