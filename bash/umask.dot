@@ -1,0 +1,11 @@
+digraph s {
+    node[shape="plaintext", fontname="Consolas, Monaco"];
+
+    node_umask[label=<
+               <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+               <TR><TD>Original file mode</TD><TD>--- rw- rw- rw-</TD></TR>
+               <TR><TD>Mask</TD><TD>000 000 000 010</TD></TR>
+               <TR><TD>Result</TD><TD>--- rw- rw- r--</TD></TR>
+               </TABLE>
+               >];
+}

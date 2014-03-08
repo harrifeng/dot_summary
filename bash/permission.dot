@@ -1,0 +1,18 @@
+digraph s {
+    node[shape="plaintext", fontname="Consolas, Monaco"];
+
+    node_per[label=<
+             <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">             
+             <TR>
+             <TD port="f1">-</TD>
+             <TD port="f2">rwx</TD>
+             <TD port="f3">rw-</TD>
+             <TD port="f4">r--</TD>
+             </TR>
+             </TABLE>
+             >]
+    "Type permission" ->  node_per:f1;
+    "Owner permission" ->  node_per:f2;
+    "Group permission" ->  node_per:f3;
+    "World permission" ->  node_per:f4;
+    }
