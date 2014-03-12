@@ -1,0 +1,49 @@
+digraph s {
+    splines=line;
+    node[shape="box",fontname="Consolas,Monaca", fontsize="12"];
+    subgraph cluster_c {
+        
+    node_c_1[style="invis", label="()"];
+    node_c_2[style="invis", label="()"];
+    node_c_8[style="invis", label="()"];
+    
+    node_c_3[label="socket()"];    
+    node_c_4[label="connect()"];    
+    node_c_5[label="write()"];    
+    node_c_6[label="read()"];    
+    node_c_7[label="close()"];    
+
+    node_c_1->node_c_2->node_c_3[style="invis"];
+    node_c_3->node_c_4->node_c_5->node_c_6->node_c_7;
+    node_c_7->node_c_8[style="invis"];
+    }
+
+    subgraph cluster_s {
+    label="server side";
+    
+    node_s_1[label="socket()"];
+    node_s_2[label="bind()"];    
+    node_s_3[label="listen()"];    
+    node_s_4[label="accept()"];    
+    node_s_5[label="read()"];    
+    node_s_6[label="write()"];    
+    node_s_7[label="read()"];    
+    node_s_8[label="close()"];
+
+    node_s_1->node_s_2->node_s_3->node_s_4->node_s_5->node_s_6->node_s_7->node_s_8;
+}
+
+node_c_4 -> node_s_4[dir="both", label="connection establishment(three-way handshake)", constraient=false];
+node_c_5 -> node_s_5[label="data(request)", constraient=false];
+node_c_6 -> node_s_6[dir="back", label="data(reply)", constraient=false];
+node_c_7 -> node_s_7[label="end-of-file notification", constraient=false];
+
+{rank=same node_c_1 node_s_1}
+{rank=same node_c_2 node_s_2}    
+{rank=same node_c_3 node_s_3}    
+{rank=same node_c_4 node_s_4}    
+{rank=same node_c_5 node_s_5}    
+{rank=same node_c_6 node_s_6}    
+{rank=same node_c_7 node_s_7}    
+{rank=same node_c_8 node_s_8}    
+}

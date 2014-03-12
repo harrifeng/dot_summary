@@ -1,0 +1,17 @@
+digraph new_graph {
+    ratio = "auto"
+    mincross = 2.0
+
+    # draw some nodes
+    "001" [shape=box, regular=1, style=filled, fillcolor="#FCD975"] ;
+    "017" [shape=circle  , regular=1,style=filled,fillcolor="#9ACEEB"   ] ;
+    "007" [shape=diamond  , regular=1,style=filled,fillcolor="#FCD975"   ] ;
+    # the key line--creating tiny node w/ no label, no color
+    # i use this style because it mimics the 'midpoint' style used in Omnigraffle et al.
+    "LN01" [shape=diamond,style=filled,label="",height=.1,width=.1] ;
+
+    # draw the edges
+    "001" -> "LN01" [dir=none,weight=1] ;
+    "007" -> "LN01" [dir=none,weight=1] ;
+    "LN01" -> "017" [dir=none, weight=2] ;
+}
