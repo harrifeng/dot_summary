@@ -1,0 +1,45 @@
+digraph s {
+    splines=line;
+    edge[fontname="Consolas,Monaca",fontsize="12"];
+    subgraph cluster_c {
+    node[shape="box",fontname="Consolas,Monaca", fontsize="12", style=filled, fillcolor="#FCD975"];
+
+    node_c_1[style="invis", label="()"];
+    node_c_6[shape=none, label="Client Side"];
+
+    node_c_2[label="socket()"];
+    node_c_3[label="sendto()"];
+    node_c_4[label="recvfrom()"];
+    node_c_5[label="close()"];
+
+    node_c_1->node_c_2[style="invis"];
+    node_c_2->node_c_3->node_c_4->node_c_5;
+    node_c_5->node_c_6[style="invis"];
+    }
+
+    subgraph cluster_s {
+    label="server side";
+    node[shape="box",fontname="Consolas,Monaca", fontsize="12", style=filled, fillcolor="#9ACEEB"];
+    node_s_1[label="socket()"];
+    node_s_2[label="bind()"];
+    node_s_3[label="recvfrom()"];
+    node_s_4[label="sendto()"];
+
+    node_s_5[style="invis", label="()"];
+    node_s_6[shape=none, label="Server Side"];
+
+    node_s_1->node_s_2->node_s_3->node_s_4;
+
+    node_s_4->node_s_5->node_s_6[style="invis"];
+}
+
+node_c_3 -> node_s_3[label="data(request)", constraient=false];
+node_c_4 -> node_s_4[dir="back", label="data(reply)", constraient=false];
+
+{rank=same node_c_1 node_s_1}
+{rank=same node_c_2 node_s_2}
+{rank=same node_c_3 node_s_3}
+{rank=same node_c_4 node_s_4}
+{rank=same node_c_5 node_s_5}
+{rank=same node_c_6 node_s_6}
+}
