@@ -1,0 +1,73 @@
+digraph s {
+    splines=line;
+    node[shape="plaintext",fontname="Consolas,Monaca", fontsize="16"];
+    node_s1[label=<
+            <table border="0" cellborder="1" cellspacing="0" cellpadding="5" >
+            <tr>
+            <td port="f1">5</td><td port="f2">6</td>
+            <td port="f3" bgcolor="#FCD975">8</td><td port="f4">7</td>
+            <td port="f5">4</td><td port="f6">3</td>
+            <td port="f7">2</td><td port="f8">1</td>
+            </tr>
+            </table>
+            >];
+
+            node_s1:f8->node_s1:f7[color="red"];
+            node_s1:f7->node_s1:f6[color="red"];
+            node_s1:f6->node_s1:f5[color="red"];
+            node_s1:f5->node_s1:f4[color="red"];
+            node_s1:f4->node_s1:f3[color="red"];
+            node_s1:f3->node_s1:f2[color="green"];
+
+            node_s2[label=<
+                    <table border="0" cellborder="1" cellspacing="0" cellpadding="5" >
+                    <tr>
+                    <td port="f1">5</td><td port="f2">6</td>
+                    <td port="f3" bgcolor="grey">8</td><td port="f4"  bgcolor="#FCD975">7</td>
+                    <td port="f5">4</td><td port="f6">3</td>
+                    <td port="f7">2</td><td port="f8">1</td>
+                    </tr>
+                    </table>
+                    >];
+            node_s1:f1->node_s2:f1[style="invis"];
+
+            node_s2:f8->node_s2:f2[color="red"];
+            node_s2:f7->node_s2:f2[color="red"];
+            node_s2:f6->node_s2:f2[color="red"];
+            node_s2:f5->node_s2:f2[color="red"];
+            node_s2:f4->node_s2:f2[color="green"];
+
+            node_s3[label=<
+                    <table border="0" cellborder="1" cellspacing="0" cellpadding="5" >
+                    <tr>
+                    <td port="f1">5</td><td port="f2"  bgcolor="#FCD975">7</td>
+                    <td port="f3" bgcolor="grey">8</td><td port="f4"  bgcolor="#FCD975">6</td>
+                    <td port="f5">4</td><td port="f6">3</td>
+                    <td port="f7">2</td><td port="f8">1</td>
+                    </tr>
+                    </table>
+                    >];
+            node_s2:f1->node_s3:f1[style="invis"];
+            node_s3:f3->node_s3:f8[label="decrease", style="dashed" color="BlueViolet"];
+
+            node_s4[label=<
+                    <table border="0" cellborder="1" cellspacing="0" cellpadding="5" >
+                    <tr>
+                    <td port="f1">5</td><td port="f2">7</td>
+                    <td port="f3" bgcolor="#FCD975">1</td><td port="f4" bgcolor="#FCD975">2</td>
+                    <td port="f5" bgcolor="#FCD975">3</td><td port="f6" bgcolor="#FCD975">4</td>
+                    <td port="f7" bgcolor="#FCD975">6</td><td port="f8" bgcolor="#FCD975">8</td>
+                    </tr>
+                    </table>
+                    >];
+            node_s3:f1->node_s4:f1[style="invis"];
+            node_s4:f3->node_s4:f8[label="increase", style="dashed", color="BlueViolet"];
+
+            node_n1[style="invis"];
+            node_n2[style="invis"];
+            node_n3[style="invis"];
+            node_n4[style="invis"];
+
+            node_n1->node_n2[constraient="false", color="red",  label="red means smaller than"];
+            node_n3->node_n4[constraient="false", color="green",label="green means bigger than"];
+        }

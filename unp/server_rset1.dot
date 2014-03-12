@@ -1,0 +1,35 @@
+digraph  struct{
+    node [shape=plaintext,fontname="Consolas,Monaco",fontsize="12"];
+    subgraph cluster_rset {
+
+    label = "allset, will became to rset";
+    value_rset[
+               label= <
+               <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" WIDTH="10">
+               <TR>
+               <TD port ="f0"> fd 0 </TD>
+               <TD> fd 1</TD>
+               <TD> fd 2 </TD>
+               <TD port = "f3"> fd 3 </TD>
+               <TD >
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               </TD>
+               </TR>
+               <TR>
+               <TD> 0 </TD>
+               <TD> 0 </TD>
+               <TD> 0 </TD>
+               <TD> 1 </TD>
+               <TD bgcolor="grey">
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.....
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               </TD>
+               </TR>
+               </TABLE>>];
+
+               "maxfd+1=4" [fontsize="14"penwidth=3, style=filled, fillcolor="#FCD975"];
+               "maxfd+1=4" ->value_rset:f0[penwidth=1];
+               "maxfd+1=4" ->value_rset:f3[];
+           }
+       }
