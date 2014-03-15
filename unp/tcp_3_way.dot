@@ -1,12 +1,38 @@
-
 digraph structs {
-    splines=line;
-    rankdir=LR
-    node [shape=record];
-    struct1 [label="<f0> left|<f1> mid&#92; dle|<f2> right"];
-    struct2 [label="<f0> one|<f1> two"];
-    struct3 [label="hello&#92;nworld |{ b |{c|<here> d|e}| f}| g | h"];
-    struct1:f1 -> struct2:f0;
-    struct1:f2 -> struct3:here;
-}
+    splines=false;
+    node[shape=plaintext];
 
+    struct_c[label=<
+             <table border="1" cellborder="0" cellspacing="0" cellpadding="5" >
+             <tr><td port="f0"  bgcolor="#F2F6EB">socket</td></tr>
+             <tr><td port="f1"  bgcolor="#DEE6CC">  </td></tr>
+             <tr><td port="f2"  bgcolor="#F2F6EB">connect(blocks)</td></tr>
+             <tr><td port="f3"  bgcolor="#DEE6CC"> </td></tr>
+             <tr><td port="f4"  bgcolor="#F2F6EB">connect returns</td></tr>
+             <tr><td port="f5"  bgcolor="#DEE6CC"> </td></tr>
+             <tr><td port="f6"  bgcolor="#F2F6EB"> </td></tr>
+             <tr><td port="f7"  bgcolor="#DEE6CC"> </td></tr>
+             <tr><td port="f10" bgcolor="#F2F6EB"> </td></tr>
+             <tr><td port="f11" bgcolor="#FCD975"> Client Side </td></tr>
+             </table>
+             >];
+    struct_s[label=<
+             <table border="1" cellborder="0" cellspacing="0" cellpadding="5" >
+             <tr><td port="f0"  bgcolor="#F2F6EB">socket,bind,listen</td></tr>
+             <tr><td port="f1"  bgcolor="#DEE6CC">(passive open)</td></tr>
+             <tr><td port="f2"  bgcolor="#F2F6EB">accept(blocks)</td></tr>
+             <tr><td port="f3"  bgcolor="#DEE6CC"> </td></tr>
+             <tr><td port="f4"  bgcolor="#F2F6EB"> </td></tr>
+             <tr><td port="f5"  bgcolor="#DEE6CC">accept returns</td></tr>
+             <tr><td port="f6"  bgcolor="#F2F6EB">read(blocks)</td></tr>
+             <tr><td port="f9"  bgcolor="#DEE6CC"> </td></tr>
+             <tr><td port="f10" bgcolor="#F2F6EB"> </td></tr>
+             <tr><td port="f11" bgcolor="#9ACEEB"> Serve Side </td></tr>
+             </table>
+             >];
+    struct_c:f2 -> struct_s:f3[label="         SYN J                            "];
+    struct_s:f3 -> struct_c:f4[xlabel="SYN K, ACK J+1"];
+    struct_c:f4 -> struct_s:f5[label="                                  ACK K+1 "];
+
+    {rank=same struct_c struct_s}
+}
