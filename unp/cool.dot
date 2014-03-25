@@ -1,0 +1,21 @@
+digraph s {
+    splines=false;
+    node[shape=rect, fontname="Consolas,Monaco"];
+    
+    node_closed[label=CLOSED]
+    node_listen[label=LISTEN]
+    node_syn_rcvd[label=SYN_RCVD]
+    // node_closed[label=CLOSED]
+    // node_closed[label=CLOSED]
+    // node_closed[label=CLOSED]
+    // node_closed[label=CLOSED]
+    // node_closed[label=CLOSED]
+    // node_closed[label=CLOSED]
+    // node_closed[label=CLOSED]
+    // node_closed[label=CLOSED]
+    // node_closed[label=CLOSED]
+
+    node_closed->node_listen[style=dashed, label="appl:passive open\nsend nothing"];
+    node_listen->node_syn_rcvd[style=dashed, label="recv:SYN; send:SYN,ACK"];
+    node_syn_rcvd->node_listen[label="recv:SYN; send:SYN,ACK"];
+}
