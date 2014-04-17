@@ -1,0 +1,58 @@
+digraph s {
+    rankdir=BT
+    node[shape="record",fontname="Consolas,Monaca",fontsize="12"];
+    edge[arrowhead=empty];
+    
+    node_map[label="\<\<interface\>\>\lMap"];
+    node_sortedmap[label="\<\<interface\>\>\lSortedMap"];
+    node_navigablemap[label="\<\<interface\>\>\lNavigableMap"];
+
+    node_linkedhashmap[label="LinkedHashMap"];
+    node_hashmap[label="HashMap"];
+    node_hashtable[label="HashTable"];    
+    node_treemap[label="TreeMap"];
+
+    node_hashtable -> node_map[style="dashed"];
+    
+    node_hashmap -> node_map[style="dashed"];
+    node_linkedhashmap -> node_hashmap;
+    
+    node_sortedmap -> node_map;
+    node_navigablemap -> node_sortedmap;
+    node_treemap -> node_navigablemap;
+    
+
+    
+    node_collection[label="\<\<interface\>\>\lCollection"];
+    node_set[label="\<\<interface\>\>\lSet"];
+    node_list[label="\<\<interface\>\>\lList"];
+    node_queue[label="\<\<interface\>\>\lQueue"];
+    node_sortedset[label="\<\<interface\>\>\lSortedSet"];
+    node_navigableset[label="\<\<interface\>\>\lNavigableSet"];
+
+    node_hashset[label="HashSet"];
+    node_linkedhashset[label="LinkedHashSet"];    
+    node_treeset[label="TreeSet"];
+    node_arraylist[label="ArrayList"];
+    node_vector[label="Vector"];
+    node_linkedlist[label="LinkedList"];
+    node_priorityqueue[label="PriorityQueue"];
+
+    node_set -> node_collection;
+    node_hashset -> node_set;
+    node_linkedhashset->node_hashset;
+
+    node_sortedset -> node_set;
+    node_navigableset -> node_sortedset;
+    node_treeset -> node_navigableset;
+    
+    node_list -> node_collection;
+    
+    node_arraylist -> node_list[style="dashed"];
+    node_vector -> node_list[style="dashed"];
+    node_linkedlist -> node_list[style="dashed"];
+    node_linkedlist -> node_queue[style="dashed"];
+    node_priorityqueue -> node_queue[style="dashed"];
+    node_queue -> node_collection;
+    
+    }
