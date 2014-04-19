@@ -6,7 +6,7 @@ digraph structs {
              <table border="1" cellborder="0" cellspacing="0" cellpadding="5" >
              <tr><td port="f0"  bgcolor="#F2F6EB" align="right"> </td></tr>
              <tr><td port="f1"  bgcolor="#DEE6CC" align="right">close </td></tr>
-             <tr><td port="f2"  bgcolor="#F2F6EB" align="right"> </td></tr>
+             <tr><td port="f2"  bgcolor="#F2F6EB" align="right">(active close) </td></tr>
              <tr><td port="f3"  bgcolor="#DEE6CC" align="right"> </td></tr>
              <tr><td port="f4"  bgcolor="#F2F6EB" align="right"> </td></tr>
              <tr><td port="f5"  bgcolor="#DEE6CC" align="right"> </td></tr>

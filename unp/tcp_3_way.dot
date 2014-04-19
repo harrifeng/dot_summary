@@ -1,6 +1,6 @@
 digraph structs {
     splines=false;
-    node[shape=plaintext];
+    node[shape="plaintext"];
 
     struct_c[label=<
              <table border="1" cellborder="0" cellspacing="0" cellpadding="5" >
